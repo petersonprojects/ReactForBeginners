@@ -2,18 +2,59 @@
 import React from 'react';
 import './css/global.scss';
 // import {Container, Row, Col} from 'react-bootstrap';
-import SingleSlide from './components/SingleSlide';
+import {data} from './data.js';
+import TitleSlide from './components/TitleSlide';
+import ContentSlide from './components/ContentSlide';
 
 class App extends React.Component {
 
   constructor(){
     super();
     this.state = {
-      example: 0
+      data: data
     }
   }
 
+  componentDidMount() {
+
+    // make call to my data
+    // dont modify original data, and get rid of this.state
+    // data = [...this.state.data]
+
+  }
+
+  mapSlides = () => {
+
+        
+    // let titleSlides = this.state.data.filter(slide => {
+    //   return slide.type === 'title'
+
+    // })
+    // let contentSlides = this.state.data.filter(slide => {
+    //   return slide.type === 'title'
+
+    // })
+
+    let jsx = this.state.data.map((slide) => {
+
+      if(slide.type === 'title')
+      {
+        return <TitleSlide key={slide.id} title={slide.title} subtitle={slide.subtitle} url={slide.URL}/>
+      }
+      else if(slide.type === 'content')
+      {
+        return <ContentSlide key={slide.id} title={slide.title} content={slide.content}/>
+      }
+
+    })
+
+    console.log(jsx)
+
+    return jsx;
+  }
+
   render(){ 
+
     
     return( <div className="container">
 	
@@ -26,9 +67,7 @@ class App extends React.Component {
   
       {/* <!-- Slides --> */}
       <div className="fs-slides">
-        <SingleSlide/>
-        <div className="fs-slide" style={{backgroundImage: "url(https://images.unsplash.com/photo-1440557653082-e8e186733eeb?crop=entropy&fit=crop&fm=jpg&h=1325&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2500)"}}></div>
-        <div className="fs-slide" style={{backgroundImage: "url(https://images.unsplash.com/photo-1449057528837-7ca097b3520c?crop=entropy&fit=crop&fm=jpg&h=1325&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=2500)"}}></div>
+        {this.mapSlides()}
       </div>
   
       {/* <!-- Quick Navigation --> */}
