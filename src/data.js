@@ -4,7 +4,7 @@ export const data = [
         type: 'title',
         id: 1,
         title: 'React For Noobs',
-        subtitle: 'by Micah Peterson from Digitalcrafts',
+        subtitle: 'Built with React by Micah Peterson',
         URL: '/images/react.png'
     },
     {

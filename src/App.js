@@ -60,12 +60,7 @@ class App extends React.Component {
   }
 
   createPrev = () => {
-
-    let jsx = this.state.data.map(item => {
-
-      return <label className="fs-prev-btn" htmlFor={`slide-${item.id}`}></label>
-    })
-
+    let jsx = this.state.data.map(item => <label className="fs-prev-btn" htmlFor={`slide-${item.id}`}></label>)
     return jsx;
   }
 
@@ -84,26 +79,21 @@ class App extends React.Component {
 	
     <div data-am-fadeshow="next-prev-navigation">
   
-      {/* <!-- Radio --> */}
-      
+      {/* Radios */}
       {this.createRadios()}
   
-      {/* <!-- Slides --> */}
+      {/* Slides */}
       <div className="fs-slides">
         {this.mapSlides()}
       </div>
   
-      {/* <!-- Quick Navigation --> */}
+      {/* Navigation */}
       <div className="fs-quick-nav">
         {this.createNavs()}
       </div>
-      
-      {/* <!-- Prev Navigation --> */}
       <div className="fs-prev-nav">
         {this.createPrev()}
       </div>
-      
-      {/* <!-- Next Navigation --> */}
       <div className="fs-next-nav">
         {this.createNext()}
       </div>
