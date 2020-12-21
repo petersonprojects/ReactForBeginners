@@ -28,7 +28,7 @@
  $prev-icon:						'❮';
  $next-icon:						'❯';
  $autohide-next-prev:			true;
- $quick-nav-color:				rgba(255,255,255,0.8);
+ $quick-nav-color:				#002855;
  $quick-nav-active-color:	rgb(68, 174, 245);
  $fade-color:					#fff;
  $autoplay:						false;
@@ -495,8 +495,10 @@
      box-shadow: 0 0 20px rgba(0,0,0,0.1);
      overflow: hidden;
 
+     margin-top: 25px;
+     margin-bottom: 25px;
  }
 
  .opacity{
-    opacity: 0.6;
+    opacity: 0.7;
  }

@@ -5,6 +5,7 @@ import './css/global.scss';
 import {data} from './data.js';
 import TitleSlide from './components/TitleSlide';
 import ContentSlide from './components/ContentSlide';
+import PictureSlide from './components/PictureSlide';
 
 class App extends React.Component {
 
@@ -15,25 +16,7 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-
-    // make call to my data
-    // dont modify original data, and get rid of this.state
-    // data = [...this.state.data]
-
-  }
-
   mapSlides = () => {
-
-        
-    // let titleSlides = this.state.data.filter(slide => {
-    //   return slide.type === 'title'
-
-    // })
-    // let contentSlides = this.state.data.filter(slide => {
-    //   return slide.type === 'title'
-
-    // })
 
     let jsx = this.state.data.map((slide) => {
 
@@ -45,6 +28,10 @@ class App extends React.Component {
       {
         return <ContentSlide key={slide.id} title={slide.title} content={slide.content}/>
       }
+      else if(slide.type === 'picture')
+      {
+        return <PictureSlide key={slide.id} url={slide.URL}/>
+      }
 
     })
 
@@ -53,17 +40,53 @@ class App extends React.Component {
     return jsx;
   }
 
+  createNavs = () => {
+
+    let jsx = this.state.data.map(item => {
+
+      return <label key={item.id} className="fs-quick-btn" htmlFor={`slide-${item.id}`}></label>
+    })
+
+    return jsx;
+  }
+  createRadios = () => {
+
+    let jsx = this.state.data.map(item => {
+
+      return <input type="radio" name="css-fadeshow" id={`slide-${item.id}`} />
+    })
+
+    return jsx;
+  }
+
+  createPrev = () => {
+
+    let jsx = this.state.data.map(item => {
+
+      return <label className="fs-prev-btn" htmlFor={`slide-${item.id}`}></label>
+    })
+
+    return jsx;
+  }
+
+  createNext = () => {
+    let jsx = this.state.data.map(item => {
+
+      return <label className="fs-next-btn" htmlFor={`slide-${item.id}`}></label>
+    })
+
+    return jsx;
+  }
+
   render(){ 
 
-    
     return( <div className="container">
 	
     <div data-am-fadeshow="next-prev-navigation">
   
       {/* <!-- Radio --> */}
-      <input type="radio" name="css-fadeshow" id="slide-1" />
-      <input type="radio" name="css-fadeshow" id="slide-2" />
-      <input type="radio" name="css-fadeshow" id="slide-3" />
+      
+      {this.createRadios()}
   
       {/* <!-- Slides --> */}
       <div className="fs-slides">
@@ -72,23 +95,17 @@ class App extends React.Component {
   
       {/* <!-- Quick Navigation --> */}
       <div className="fs-quick-nav">
-        <label className="fs-quick-btn" htmlFor="slide-1"></label>
-        <label className="fs-quick-btn" htmlFor="slide-2"></label>
-        <label className="fs-quick-btn" htmlFor="slide-3"></label>
+        {this.createNavs()}
       </div>
       
       {/* <!-- Prev Navigation --> */}
       <div className="fs-prev-nav">
-        <label className="fs-prev-btn" htmlFor="slide-1"></label>
-        <label className="fs-prev-btn" htmlFor="slide-2"></label>
-        <label className="fs-prev-btn" htmlFor="slide-3"></label>
+        {this.createPrev()}
       </div>
       
       {/* <!-- Next Navigation --> */}
       <div className="fs-next-nav">
-        <label className="fs-next-btn" htmlFor="slide-1"></label>
-        <label className="fs-next-btn" htmlFor="slide-2"></label>
-        <label className="fs-next-btn" htmlFor="slide-3"></label>
+        {this.createNext()}
       </div>
   
     </div>

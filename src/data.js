@@ -1,6 +1,5 @@
+export const data = [ 
 
-
-export const data = [
     {
         type: 'title',
         id: 1,
@@ -16,10 +15,15 @@ export const data = [
         URL: '/images/frontEnd.jpg'
     },
     {
-        type: 'content',
+        type:'picture',
         id: 3,
-        title: 'What does all that mean?',
-        content: 'When a user navigates to a page created in React, React library creates its own virtual respresentation of the page and only re-renders the small pieces (components) within the page.'
-
+        URL: '/images/whyReact.jpg'
+    },
+    {
+        type:'content',
+        id: 4,
+        content: 'Testing things out',
+        title: 'my title for it'
     }
-]
+
+];
