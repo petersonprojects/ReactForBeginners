@@ -17,6 +17,7 @@ ReactDOM.render(
       <BaseLayout>
         <Switch>
 
+          {/* This is where the url paths go, along with a complementary component. */}
           <Route exact path='/' component={App}/>
 
         </Switch>

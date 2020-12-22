@@ -20,9 +20,14 @@ class App extends React.Component {
 
     let jsx = this.state.data.map((slide) => {
 
+      if(slide.opacity !== undefined)
+      {
+        var opacity = slide.opacity;
+      }
+
       if(slide.type === 'title')
       {
-        return <TitleSlide key={slide.id} title={slide.title} subtitle={slide.subtitle} url={slide.URL}/>
+        return <TitleSlide key={slide.id} title={slide.title} subtitle={slide.subtitle} url={slide.URL} opacity={opacity}/>
       }
       else if(slide.type === 'content')
       {

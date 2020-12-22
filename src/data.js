@@ -5,25 +5,36 @@ export const data = [
         id: 1,
         title: 'React For Noobs',
         subtitle: 'Built with React by Micah Peterson',
-        URL: '/images/react.png'
+        URL: '/images/react.png',
+        opacity: 0.5
     },
     {
-        type: 'title',
+        type:'title',
         id: 2,
-        title: 'Why React?',
-        subtitle: '',
-        URL: '/images/frontEnd.jpg'
-    },
-    {
-        type:'picture',
-        id: 3,
-        URL: '/images/whyReact.jpg'
+        title: 'What is React?',
+        URL: '/images/reactGuy.png',
+        opacity: 0.4
     },
     {
         type:'content',
+        id: 3,
+        title: 'my title for it',
+        content: 'React builds its own representation of the browsers window'
+    },
+    {
+        type: 'title',
         id: 4,
-        content: 'Testing things out',
-        title: 'my title for it'
-    }
+        title: 'Why React?',
+        subtitle: '',
+        URL: '/images/frontEnd.jpg',
+        opacity: 0.5
+    },
+    {
+        type:'picture',
+        id: 5,
+        URL: '/images/whyReact.jpg'
+    },
+
+
 
 ];
