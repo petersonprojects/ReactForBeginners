@@ -19,8 +19,9 @@ export const data = [
     {
         type:'content',
         id: 3,
-        title: 'React is a JavaScript library',
-        content: 'Problem: The DOM is slow and requires to much work and time to get updated. With increasing demand for interactivity, apps are requiring more speed and content. React builds its own representation of the browsers window, that refuses to build the same page twice. React will intuitively replace updated parts of your screen or data, without completely rebuilding the page. Here\'s what that looks like. React\'s virtual DOM is an agile and lightweight copy. '
+        title: 'React is a JavaScript Library',
+        bullets: ['It was created by Jordan Walke and is now managed by Facebook', 'The first signs of React emerged in 2010 when they introduced XHP (also by Facebook) into their PHP stack. In 2011 an early prototype was built.',
+        'A year later in 2012, Facebook Ads became extremely difficult to manage at the level they were being created, so Jordan Walke continued with his prototype and created React.', 'In this same year, Instagram is acquired by Facebook and under the pressure of Instagram, they must make React open-source', 'In May 2013, Jordan Walke introduced React and the library becomes open-sourced.']
     },
     {
         type: 'title',
@@ -31,8 +32,14 @@ export const data = [
         opacity: 0.5
     },
     {
-        type:'picture',
+        type: 'content',
         id: 5,
+        title: "React is fast, scalable, and smart",
+        bullets: ['The DOM is slow and requires too much time and effort to get updated.', 'With increasing demand for interactivity, apps are requiring more speed and content.', 'React builds its own representation of the browsers window, which refuses to build the same page twice.', 'React will intuitively replace updated parts in reaction to a change in data or user input, without completely rebuilding the page', 'Here is what that looks like: ', 'React\'s virtual "DOM" is an agile and lightweight copy of the browser\'s']
+    },
+    {
+        type:'picture',
+        id: 6,
         URL: '/images/whyReact.jpg'
     }
 

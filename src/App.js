@@ -12,6 +12,7 @@ class App extends React.Component {
 
   constructor(){
     super();
+    
     this.state = {
       data: data,
       jsxMap: [],
@@ -20,8 +21,27 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-
+    // when the page is mounted, created the large jsx map of slides
     this.mapSlides()
+
+  }
+
+  handleKey = (e) => {
+
+    if (e.code == 'ArrowRight')
+    {
+      if(this.state.page < this.state.jsxMap.length - 1)
+      {
+        this.setState({page: this.state.page + 1})
+      }
+    }
+    if (e.code == 'ArrowLeft')
+    {
+      if(this.state.page > 0)
+      {
+        this.setState({page: this.state.page - 1})
+      }
+    }
   }
 
   increment = () => {
@@ -65,7 +85,7 @@ class App extends React.Component {
       }
       else if(slide.type === 'content')
       {
-        return <ContentSlide key={slide.id} title={slide.title} content={slide.content}/>
+        return <ContentSlide key={slide.id} title={slide.title} content={slide.content} bullets={slide.bullets}/>
       }
       else if(slide.type === 'picture')
       {
@@ -121,9 +141,9 @@ class App extends React.Component {
   
       {/* Radios */}
       {/* {this.createRadios()} */}
-  
+    
       {/* Slides */}
-      <div className="fs-slides">
+      <div className="fs-slides" onKeyDown={this.handleKey} tabIndex="0">
         {/* {this.mapSlides()} */}
         {this.state.jsxMap[this.state.page]}
         {/* {this.createIntro()} */}
