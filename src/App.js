@@ -1,6 +1,7 @@
 // importing css from public
 import React from 'react';
 import './css/global.scss';
+import './css/global.css';
 // import {Container, Row, Col} from 'react-bootstrap';
 import {data} from './data.js';
 import TitleSlide from './components/TitleSlide';
@@ -12,8 +13,41 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      data: data
+      data: data,
+      jsxMap: [],
+      page: 0
     }
+  }
+
+  componentDidMount = () => {
+
+    this.mapSlides()
+  }
+
+  increment = () => {
+
+    {/* put an onClick for the next arrow */}
+
+    if(this.state.page < this.state.jsxMap.length - 1)
+    {
+      this.setState({
+        page: this.state.page + 1 
+      }, ()=>console.log(this.state.page))
+    }
+    
+  }
+
+  decrement = () => {
+
+    {/* put an onClick for the next arrow */}
+    if(this.state.page > 0)
+    {
+      this.setState({
+        page: this.state.page - 1 
+      }, ()=>console.log(this.state.page))
+    }
+
+    
   }
 
   mapSlides = () => {
@@ -40,16 +74,17 @@ class App extends React.Component {
 
     })
 
-    console.log(jsx)
+    this.setState({
+      jsxMap: jsx
+    }, ()=>console.log(this.state.jsxMap))
 
-    return jsx;
   }
 
   createNavs = () => {
 
     let jsx = this.state.data.map(item => {
 
-      return <label key={item.id} className="fs-quick-btn" htmlFor={`slide-${item.id}`}></label>
+      return <label key={item.id*2} className="fs-quick-btn" htmlFor={`slide-${item.id}`}></label>
     })
 
     return jsx;
@@ -58,43 +93,46 @@ class App extends React.Component {
 
     let jsx = this.state.data.map(item => {
 
-      return <input type="radio" name="css-fadeshow" id={`slide-${item.id}`} />
+      return <input type="radio" key={item.id*3} name="css-fadeshow" id={`slide-${item.id}`} />
     })
 
     return jsx;
   }
 
   createPrev = () => {
-    let jsx = this.state.data.map(item => <label className="fs-prev-btn" htmlFor={`slide-${item.id}`}></label>)
+    let jsx = this.state.data.map(item => <label className="fs-prev-btn" onClick={()=>this.decrement()} key={item.id*4} htmlFor={`slide-${item.id}`}></label>)
     return jsx;
   }
 
   createNext = () => {
     let jsx = this.state.data.map(item => {
 
-      return <label className="fs-next-btn" htmlFor={`slide-${item.id}`}></label>
+      return <label className="fs-next-btn" onClick={()=>{this.increment()}} key={item.id*5} htmlFor={`slide-${item.id}`}></label>
     })
+
 
     return jsx;
   }
 
   render(){ 
-
     return( <div className="container">
 	
     <div data-am-fadeshow="next-prev-navigation">
   
       {/* Radios */}
-      {this.createRadios()}
+      {/* {this.createRadios()} */}
   
       {/* Slides */}
       <div className="fs-slides">
-        {this.mapSlides()}
+        {/* {this.mapSlides()} */}
+        {this.state.jsxMap[this.state.page]}
+        {/* {this.createIntro()} */}
       </div>
+
   
       {/* Navigation */}
       <div className="fs-quick-nav">
-        {this.createNavs()}
+        {/* {this.createNavs()} */}
       </div>
       <div className="fs-prev-nav">
         {this.createPrev()}

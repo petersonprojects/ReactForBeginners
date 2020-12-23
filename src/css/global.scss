@@ -43,6 +43,29 @@
   */
  
  /* Mixins to handle prefixes */
+ @media (max-width: 288px)
+ {
+     html { font-size:0.2em; }
+ }
+ 
+ @media (min-width: 289px) and (max-width: 414px)
+ {
+     html { font-size:0.7em; }
+ }
+ 
+ @media (min-width: 415px) and (max-width: 991px)
+ {
+     html { font-size:1.0em; }
+ }
+ 
+ @media (min-width: 992px) and (max-width: 1300px)
+ { 
+     html {font-size:1.2em;}
+ }
+ 
+ @media (min-width: 1300px) and (max-width: 2000px){  
+     html {font-size:1.3em;}    
+ }
  
  @mixin fadeshow-transition($value...) {
      @if length($value) < 1 {
@@ -120,7 +143,7 @@
          bottom: 0;
          left: 0;
          right: 0;
-         opacity: 0;
+        //  overflow-y:scroll;
          background-size: cover;
          background-position: center;
          background-repeat: no-repeat;
@@ -130,6 +153,8 @@
          &:first-child {
              opacity: 1;
          }
+
+
      }
  
      /* Quick Navigation */
@@ -502,3 +527,4 @@
  .opacity{
     opacity: 0.7;
  }
+

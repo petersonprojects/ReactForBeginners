@@ -1,19 +1,26 @@
 import React from 'react';
 import '../css/global.scss';
+import '../css/global.css';
+import {Row, Button} from 'react-bootstrap';
 
 const ContentSlide = (props) => {
-    console.log(props.url)
+
+    // let zIndie = props.id * -100;
     return (
         <>
 
-            <div className="fs-slide">
+        <div className="fs-slide" style={{paddingLeft:'100px', paddingRight:'100px', fontFamily:'Rockwell', fontWeight:'normal'}}>
 
-                <div style={{position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', color: 'black', fontFamily: 'Rockwell', textAlign: 'center', textShadow: '0 0 20px rgba(0,0,0,0.5)', width:'100%'}}>
-                    <h1 style={{marginTop: '0', marginBottom: '0.8vw', fontSize: '5vw', fontWeight: 'bold'}}>{props.title}</h1>
-                    <p style={{fontSize: '2vw', fontWeight: '100', marginTop: '0'}}>{props.content}</p>
-                </div>
+                <Row className="justify-content-center">
+                        <h1 style={{marginTop: '0.4em', marginBottom: '0.5em', fontSize: '4em', fontWeight: 'bold', textAlign: 'center'}}>{props.title}</h1>
+                    </Row>
 
-            </div>
+                    <Row> 
+                        <p style={{fontSize: '1.2em', fontWeight: '100', marginTop: '0'}}>{props.content}</p>
+                    </Row>
+
+        </div>
+
 
         </>
     )

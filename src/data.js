@@ -6,7 +6,8 @@ export const data = [
         title: 'React For Noobs',
         subtitle: 'Built with React by Micah Peterson',
         URL: '/images/react.png',
-        opacity: 0.5
+        opacity: 0.5,
+        display: 'none'
     },
     {
         type:'title',
@@ -18,8 +19,8 @@ export const data = [
     {
         type:'content',
         id: 3,
-        title: 'my title for it',
-        content: 'React builds its own representation of the browsers window'
+        title: 'React is a JavaScript library',
+        content: 'Problem: The DOM is slow and requires to much work and time to get updated. With increasing demand for interactivity, apps are requiring more speed and content. React builds its own representation of the browsers window, that refuses to build the same page twice. React will intuitively replace updated parts of your screen or data, without completely rebuilding the page. Here\'s what that looks like. React\'s virtual DOM is an agile and lightweight copy. '
     },
     {
         type: 'title',
@@ -33,8 +34,6 @@ export const data = [
         type:'picture',
         id: 5,
         URL: '/images/whyReact.jpg'
-    },
-
-
+    }
 
 ];
